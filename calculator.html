@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>   
+    
+    .outer {
+        border: 2px solid white;
+        margin: auto;
+        height: 450px;
+        width: 300px;
+        box-shadow:  rgb(163, 162, 162) 2px 2px 8px;
+        border-radius: 10px;
+        
+    }
+
+    #inset{
+        margin: 10px ;
+        width: 265px;
+        height: 100px;
+        border: 3px solid rgb(212, 210, 210);
+        border-radius: 9px;
+    }
+
+    .btn {
+        margin: 10px;
+        padding: 10px;
+        display: grid;
+        grid-gap: 15px;
+        text-align: center;
+        grid-template-areas: 
+        ' ac backspc devide into '
+        ' btn7 btn8 btn9 minus '
+        ' btn4 btn5 btn6 plus '
+        ' btn1 btn2 btn3 plus '
+        ' btn0 dz   dot  eql '
+        ;
+    }
+
+    .item {
+        border: none;
+        padding: 15px;
+
+       box-shadow:  rgb(163, 162, 162) 2px 2px 8px;
+       border-radius: 10px;
+       text-align: center;
+       font-size: 15px;
+       font-weight: 700;
+
+    }
+
+    #ac {
+        grid-area: ac;
+        background-color: red;
+    }
+
+    #devide {
+        grid-area: devide;
+    }
+
+    #minus {
+        grid-area: minus;
+    }
+
+    #into {
+        grid-area: into;
+    }
+
+    #btn7 {
+        grid-area: btn7;
+    }
+
+    #btn8 {
+        grid-area: btn8;
+    }
+
+    #btn9 {
+        grid-area: btn9;
+    }
+
+    #btn4 {
+        grid-area: btn4;
+    }
+
+    #plus {
+        grid-area: plus;
+        background-color: rgb(49, 218, 49);
+    }
+
+
+    #btn5 {
+        grid-area: btn5;
+    }
+
+    #btn6 {
+        grid-area: btn6;
+    }
+
+    #btn1 {
+        grid-area: btn1;
+    }
+
+    #btn2 {
+        grid-area: btn2;
+    }
+
+    #btn3 {
+        grid-area: btn3;
+    }
+
+    #btn0 {
+        grid-area: btn0;
+    }
+
+    #dz {
+        grid-area: dz;
+    }
+
+    #dot {
+        grid-area: dot;
+    }
+
+    #eql {
+        grid-area: eql;
+        background-color: rgb(0, 102, 255);
+    }
+    #backspc {
+        grid-area: backspc;
+       
+    }
+   
+</style>
+
+</head>
+
+<body>
+<div class="outer">
+    <input name="" id="inset">
+    <div class="btn" id="fnctn">
+        <button class="item" id="btn1" value="1" onclick="insert(1)">1</button>
+        <button class="item" id="btn2" value="2" onclick="insert(2)">2</button>
+        <button class="item" id="btn3" value="3" onclick="insert(3)">3</button>
+        <button class="item" id="btn4" value="4" onclick="insert(4)">4</button>
+        <button class="item" id="btn5" value="5" onclick="insert(5)">5</button>
+        <button class="item" id="btn6" value="6" onclick="insert(6)">6</button>
+        <button class="item" id="btn7" value="7" onclick="insert(7)">7</button>
+        <button class="item" id="btn8" value="8" onclick="insert(8)">8</button>
+        <button class="item" id="btn9" value="9" onclick="insert(9)">9</button>
+        <button class="item" id="btn10" value="0" onclick="insert(0)">0</button>
+        <button class="item" id="plus"  onclick="insert('+')">+</button>
+        <button class="item" id="minus" value="-" onclick="insert('-')">-</button>
+        <button class="item" id="into" value="*" onclick="insert('*')">*</button>
+        <button class="item" id="devide" value="/" onclick="insert('/')">/</button>
+        <button class="item" id="ac" value="clear" onclick="clr()">CLEAR</button>
+        <button class="item" id="eql" value="="  onclick="eqaul()">=</button>
+        <button class="item" id="dz" value="00" onclick="insert(00)">00</button>
+        <button class="item" id="dot" value="." onclick="insert('.')">.</button>
+        <button class="item" id="backspc" value="." onclick="backspc()">x</button>
+    </div>
+</div>
+
+
+<script>
+    function insert(x){
+        document.getElementById("inset").value += x;
+    }
+    function eqaul(){
+        let a = document.getElementById("inset").value;
+        let b = eval(a);
+        document.getElementById("inset").value = b;
+    }
+    function clr(){
+        document.getElementById("inset").value = " "
+    }
+    function backspc(){
+        let x = document.getElementById("inset").value;
+        document.getElementById("inset").value = x.substring(0,x.length - 1);
+    }
+</script>
+</body>
+
+</html>
+       
